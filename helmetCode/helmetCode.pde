@@ -76,7 +76,6 @@ cState3 = digitalRead(readPin3);
   } else if (cState1 == HIGH){
     Serial.println("cstate 1 high");
     chaseBlinkerLeft(amber, 100);
-    
   } else if(cState2 == HIGH) {
     Serial.println("cstate 2 high");
 	chaseBlinkerRight(amber, 100);
@@ -247,11 +246,19 @@ void stopLightLeft(uint32_t c){
    for (int i=8; i < 12; i++) {
     strip.setPixelColor(i, c);
   }
+  strip.setPixelColor(1, c);
+  strip.setPixelColor(2, c);
+  strip.setPixelColor(5, c);
+  strip.setPixelColor(6, c);
 }
 void stopLightRight(uint32_t c){
    for (int i=12; i < 16; i++) {
     strip.setPixelColor(i, c);
   }
+  strip.setPixelColor(17, c);
+  strip.setPixelColor(18, c);
+  strip.setPixelColor(21, c);
+  strip.setPixelColor(22, c);
 }
 
 void rightBlinkTop(uint32_t c){
